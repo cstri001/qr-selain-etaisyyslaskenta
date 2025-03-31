@@ -4,6 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { CameraView, useCameraPermissions, CameraType, CameraCapturedPicture, CameraPictureOptions } from "expo-camera"
 import { Button, BottomNavigation } from 'react-native-paper';
 import Camera from './components/Camera';
+import LocationDistance from './components/LocationDistance';
 import { useState } from 'react';
 
 export default function App() {
@@ -45,7 +46,7 @@ export default function App() {
   const distanceCalcView = () => {
     return (
       <View style={styles.viewContainer}>
-        <Text>Mau</Text>
+        <LocationDistance />
       </View>
     )
   }

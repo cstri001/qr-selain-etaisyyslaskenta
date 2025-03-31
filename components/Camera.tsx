@@ -17,10 +17,13 @@ export default function Camera({setCameraMode} : Props) : React.ReactElement {
   const [uri, setUri] = useState<string>('')
 
   const openUrl = (data : BarcodeScanningResult) => {
-    setScanned(true)
     console.log(data.data)
-    
-    setUri(data.data)
+    setScanned(true)
+    if (data.data.includes('http://', 0) || data.data.includes('https://', 0)) {
+      setUri(data.data)
+    } else {
+      console.error('Invalid URL or QR code')
+    }
 
   }
 
